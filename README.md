@@ -4,7 +4,7 @@ Sistema de Eventos encomendado pela Morena.
 
 [![Build Status](https://travis-ci.org/lcnodc/wttd_projetos.svg?branch=master)](https://travis-ci.org/lcnodc/wttd_projetos)
 [![Code Health](https://landscape.io/github/lcnodc/wttd_projetos/master/landscape.svg?style=flat)](https://landscape.io/github/lcnodc/wttd_projetos/master)
-
+[![CodeFactor](https://www.codefactor.io/repository/github/lcnodc/wttd_projetos/badge)](https://www.codefactor.io/repository/github/lcnodc/wttd_projetos)
 
 ## Como desenvolver?
 
