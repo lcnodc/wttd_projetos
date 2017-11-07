@@ -20,7 +20,7 @@ git clone git@github.com:lcnodc/wttd_projetos.git wttd
 cd wttd
 python -m env .wttd
 source .wttd/bin/activate
-pip install -r requirements.txt
+pip install -r requirements-dev.txt
 cp contrib/env-sample .env
 python manage.py test
 ```
