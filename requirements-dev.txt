@@ -1,2 +1,2 @@
--r requiments.txt
+-r requirements.txt
 ipython[notebook]
