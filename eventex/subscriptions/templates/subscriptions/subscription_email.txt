@@ -2,9 +2,9 @@ Olá tudo bem?
 
 Muito obrigada por se inscrever no Eventex
 
-Nome: {{ name }}
-CPF: {{ cpf }}
-Email: {{ email }}
-Telefone: {{ phone }}
+Nome: {{ subscription.name }}
+CPF: {{ subscription.cpf }}
+Email: {{ subscription.email }}
+Telefone: {{ subscription.phone }}
 
 Atenciosamente,
