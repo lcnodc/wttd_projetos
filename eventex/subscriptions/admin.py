@@ -3,10 +3,13 @@ from django.utils.timezone import now
 from eventex.subscriptions.models import  Subscription
 
 class SubscriptionModelAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'phone', 'cpf', 'created_at', 'subscribed_today')
+    list_display = ('name', 'email', 'phone', 'cpf', 'created_at', 'subscribed_today', 'paid')
     date_hierarchy = 'created_at'
-    search_fields = ('name', 'phone', 'cpf', 'created_at', )
-    list_filter = ('created_at', )
+    search_fields = ('name', 'phone', 'cpf', 'created_at')
+    list_filter = ('paid','created_at')
+
+    actions = ['mark_as_paid']
+
 
     def subscribed_today(selfself, obj):
         return obj.created_at == now().date()
@@ -14,6 +17,15 @@ class SubscriptionModelAdmin(admin.ModelAdmin):
     subscribed_today.short_description = 'inscrito hoje?'
     subscribed_today.boolean = 'True'
 
+    def mark_as_paid(self, request, queryset):
+        count = queryset.update(paid=True)
+
+        if count == 1:
+            msg = '{} inscrição foi marcada como paga.'
+        else:
+            msg = '{} inscrições foram marcadas como pagas.'
+
+        self.message_user(request, msg.format(count))
 
 admin.site.register(Subscription, SubscriptionModelAdmin)
 
