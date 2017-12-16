@@ -10,8 +10,8 @@ class SubscriptionFormTest(TestCase):
         self.assertSequenceEqual(expected, list(form.fields))
 
     def test_cpf_is_digit(self):
-        "CPF must only accept digits."
-        form = self.make_validated_form(cpf='AAAA5678901')
+        """CPF must only accept digits."""
+        form = self.make_validated_form(cpf='ABCD5678901')
         self.assertFormErrorCode(form, 'cpf', 'digits')
 
     def test_cpf_has_11_digits(self):
@@ -20,7 +20,6 @@ class SubscriptionFormTest(TestCase):
         self.assertFormErrorCode(form, 'cpf', 'length')
 
     def assertFormErrorCode(self, form, field, code):
-        errors = form.errors.as_data()
         errors = form.errors.as_data()
         errors_list = errors[field]
         exception = errors_list[0]
@@ -32,8 +31,8 @@ class SubscriptionFormTest(TestCase):
         self.assertListEqual([msg], errors_list)
 
     def make_validated_form(self, **kwargs):
-        valid = dict ( name='Luciano da Cunha' , cpf='12345678901' ,
-                      email='luciano@email.com' , phone='1222121212' )
+        valid = dict(name='Luciano da Cunha' , cpf='12345678901' ,
+                      email='luciano@email.com' , phone='1222121212')
 
         data = dict(valid, **kwargs)
         form = SubscriptionForm(data)
