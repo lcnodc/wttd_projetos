@@ -19,11 +19,20 @@ class SubscriptionFormTest(TestCase):
         form = self.make_validated_form(cpf='1234')
         self.assertFormErrorCode(form, 'cpf', 'length')
 
+    def test_cpf_has_check_digits_valid(self):
+        """CPF must have check digits valid."""
+        form = self.make_validated_form(cpf='12345678901')
+        self.assertFormErrorCode(form, 'cpf', 'checker')
+
     def assertFormErrorCode(self, form, field, code):
         errors = form.errors.as_data()
         errors_list = errors[field]
         exception = errors_list[0]
         self.assertEqual(code, exception.code)
+
+    def test_name_must_be_capitalized(self):
+        form = self.make_validated_form(name='LUCIANO da cunha')
+        self.assertEqual('Luciano da Cunha', form.cleaned_data['name'])
 
     def assertFormErrorMessage(self, form, field, msg):
         errors = form.errors
@@ -31,8 +40,8 @@ class SubscriptionFormTest(TestCase):
         self.assertListEqual([msg], errors_list)
 
     def make_validated_form(self, **kwargs):
-        valid = dict(name='Luciano da Cunha' , cpf='12345678901' ,
-                      email='luciano@email.com' , phone='1222121212')
+        valid = dict(name='Luciano da Cunha' , cpf='11111111111' ,
+                      email='luciano@email.com' , phone='19-99999-9999')
 
         data = dict(valid, **kwargs)
         form = SubscriptionForm(data)

@@ -8,7 +8,7 @@ class SubscriptionModelTest(TestCase):
     def setUp(self):
         self.obj = Subscription(
             name = 'Luciano da Cunha',
-            cpf = '12345678901',
+            cpf = '11111111111',
             email = 'luciano@email.com',
             phone = '19-99999-9999',
         )

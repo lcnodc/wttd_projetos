@@ -5,7 +5,7 @@ from eventex.subscriptions.admin import SubscriptionModelAdmin, Subscription, ad
 
 class SubscriptionModelAdminTest(TestCase):
     def setUp(self):
-        Subscription.objects.create(name='Luciano da Cunha', cpf='12345678901',
+        Subscription.objects.create(name='Luciano da Cunha', cpf='11111111111',
                                          email='luciano@email.com', phone='12345678901')
         self.model_admin = SubscriptionModelAdmin(Subscription, admin.site)
 

@@ -5,7 +5,7 @@ from django.shortcuts import resolve_url as r
 
 class SubscribePostValid(TestCase):
     def setUp(self):
-        data = dict(name='Luciano da Cunha', cpf='12345678901',
+        data = dict(name='Luciano da Cunha', cpf='11111111111',
                     email='luciano@email.com', phone='19-99999-9999')
         self.client.post(r('subscriptions:new'), data)
         self.email = mail.outbox[0]
@@ -25,7 +25,7 @@ class SubscribePostValid(TestCase):
     def test_subscription_email_body(self):
         contents = [
             'Luciano da Cunha',
-            '12345678901',
+            '11111111111',
             'luciano@email.com',
             '19-99999-9999',
         ]
