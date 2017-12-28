@@ -8,3 +8,8 @@ psycopg2==2.6.1
 django-extensions==1.9.7
 django-test-without-migrations==0.6
 pytz
+python3-dev
+postgresql
+postgresql-contrib
+python3-psycopg2
+libpq-dev==9.5.2-1
