@@ -52,4 +52,3 @@ class SubscriptionForm(forms.ModelForm):
             raise ValidationError('Informe seu e-mail ou telefone.')
 
         return self.cleaned_data
-
