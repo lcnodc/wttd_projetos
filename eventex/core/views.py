@@ -1,6 +1,4 @@
 from django.shortcuts import render , get_object_or_404
-from django.shortcuts import resolve_url as r
-
 from eventex.core.models import Speaker
 
 
