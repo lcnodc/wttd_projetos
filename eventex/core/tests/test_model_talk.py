@@ -71,7 +71,7 @@ class CourseModelTest(TestCase):
         )
 
     def test_create(self):
-        self.assertTrue(Course.objects.exists())
+        self.assertTrue( Course.objects.exists( ) )
 
     def test_speaker(self):
         """Course has many speakers and vice-versa"""
@@ -85,5 +85,11 @@ class CourseModelTest(TestCase):
     def  test_str(self):
         self.assertEqual('Título do Curso', str(self.course))
 
+    def test_ordering(self):
+        self.assertListEqual(['start'], Talk._meta.ordering)
+
     def test_manager(self):
-        self.assertIsInstance(Course.objects, PeriodManager)
+        self.assertIsInstance( Course.objects , PeriodManager )
+
+    def test_ordering(self):
+        self.assertListEqual(['start'], Course._meta.ordering)
